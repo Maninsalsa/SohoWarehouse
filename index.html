@@ -53,6 +53,11 @@
             margin-left: 20px;
         }
         
+        /* Make sure the logo is visible in the desktop layout */
+        .desktop-only.logo-icon {
+            display: inline-block;
+        }
+        
         .nav-links a {
             text-decoration: none;
             color: var(--primary-color);
@@ -316,8 +321,11 @@
             }
             
             .nav-links {
+                width: 100%;
+                justify-content: center;
+                font-size: 0.85em;
+                margin-left: 0;
                 gap: 15px;
-                font-size: 0.9em;
             }
             
             .brand-name {
@@ -339,33 +347,63 @@
             }
         }
         
+        /* Mobile layout elements - hidden by default */
+        .mobile-top-row {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+        
+        .brand-name-mobile {
+            font-size: 1.2em;
+            font-weight: 400;
+            color: var(--primary-color);
+            letter-spacing: 0.05em;
+            margin-left: 15px;
+        }
+        
+        /* Desktop/mobile toggling */
+        .desktop-only {
+            display: block;
+        }
+        
         /* Extra small devices */
         @media screen and (max-width: 480px) {
-            /* Reorder elements for mobile */
-            .top-nav {
-                display: grid;
-                grid-template-columns: auto 1fr;
-                grid-template-rows: auto auto;
-                gap: 10px;
-                align-items: center;
+            /* Override body padding to match the screenshot */
+            body {
+                padding: 20px 10px 40px;
             }
             
-            .logo-icon {
-                grid-column: 1;
-                grid-row: 1;
+            .top-nav {
+                flex-direction: column;
+                align-items: center;
+                border-bottom: none;
+                margin-bottom: 5px;
+            }
+            
+            /* Show mobile layout, hide desktop layout */
+            .mobile-top-row {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+            
+            /* Ensure the mobile logo and brand name look like the screenshot */
+            .mobile-top-row .logo-icon {
                 margin-right: 15px;
             }
             
-            .brand-name {
-                grid-column: 2;
-                grid-row: 1;
-                text-align: left;
+            .desktop-only {
+                display: none;
             }
             
             .nav-left {
-                grid-column: 1 / span 2;
-                grid-row: 2;
                 width: 100%;
+                justify-content: center;
+                border-bottom: 1px solid var(--border-color);
+                padding-bottom: 15px;
             }
             
             .nav-links {
@@ -373,6 +411,12 @@
                 justify-content: center;
                 font-size: 0.85em;
                 margin-left: 0;
+            }
+            
+            /* Additional styling to match screenshot */
+            h1 {
+                margin-top: 30px;
+                margin-bottom: 30px;
             }
             
             th {
@@ -385,8 +429,23 @@
 <body>
     <!-- Top navigation -->
     <div class="top-nav">
-        <div class="nav-left">
+        <!-- This div only appears in mobile view via CSS -->
+        <div class="mobile-top-row">
             <div class="logo-icon">
+                <div class="logo-square"></div>
+                <div class="logo-square"></div>
+                <div class="logo-square"></div>
+                <div class="logo-square"></div>
+                <div class="logo-square"></div>
+                <div class="logo-square"></div>
+                <div class="logo-square"></div>
+                <div class="logo-square"></div>
+                <div class="logo-square"></div>
+            </div>
+            <div class="brand-name-mobile">Soho Warehouse</div>
+        </div>
+        <div class="nav-left">
+            <div class="logo-icon desktop-only">
                 <div class="logo-square"></div>
                 <div class="logo-square"></div>
                 <div class="logo-square"></div>
@@ -403,7 +462,7 @@
                 <a href="#na-beverages">NA Beverage Builds</a>
             </div>
         </div>
-        <div class="brand-name">Soho Warehouse</div>
+        <div class="brand-name desktop-only">Soho Warehouse</div>
     </div>
 
     <h1 style="font-size: 1.8em;">Food & Drink Pairing Guide</h1>
