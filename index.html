@@ -33,7 +33,7 @@
         /* Navigation */
         .top-nav {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
             padding: 10px 0;
             margin-bottom: 30px;
@@ -43,17 +43,11 @@
         .logo-brand-wrapper {
             display: flex;
             align-items: center;
-            width: 100%;
-            justify-content: center;
-            margin-bottom: 20px;
         }
         
         .nav-links {
             display: flex;
             gap: 30px;
-            margin-left: 0;
-            justify-content: center;
-            width: 100%;
         }
         
         .nav-links a {
@@ -68,12 +62,23 @@
             color: var(--accent-color);
         }
         
+        /* The brand-name appears on the right in desktop view */
         .brand-name {
             font-size: 1.2em;
             font-weight: 400;
             color: var(--primary-color);
             letter-spacing: 0.05em;
+            display: block;
+        }
+        
+        /* The brand-name-mobile appears next to logo in mobile view */
+        .brand-name-mobile {
+            font-size: 1.2em;
+            font-weight: 400;
+            color: var(--primary-color);
+            letter-spacing: 0.05em;
             margin-left: 15px;
+            display: none; /* Hidden on desktop */
         }
 
         .logo-icon {
@@ -81,7 +86,7 @@
             width: 30px;
             height: 30px;
             border: none;
-            margin-right: 0;
+            margin-right: 15px;
             position: relative;
             background: 
                 linear-gradient(var(--primary-color) 2px, transparent 2px) 0 0,
@@ -296,7 +301,32 @@
             }
         }
 
+        /* Medium screens */
         @media screen and (max-width: 768px) {
+            .top-nav {
+                flex-direction: column;
+            }
+            
+            .logo-brand-wrapper {
+                margin-bottom: 20px;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .brand-name {
+                display: none; /* Hide the right-aligned brand name */
+            }
+            
+            .brand-name-mobile {
+                display: block; /* Show brand name next to logo */
+            }
+            
+            .nav-links {
+                margin-left: 0;
+                justify-content: center;
+                width: 100%;
+            }
+            
             body {
                 padding: 20px 10px;
             }
@@ -304,71 +334,14 @@
             table {
                 font-size: 0.9em;
             }
-
+            
             td, th {
                 padding: 12px 10px;
                 text-align: center;
             }
-            
-            .logo-icon {
-                min-width: 30px;
-                flex-shrink: 0;
-            }
-            
-            .top-nav {
-                flex-wrap: wrap;
-            }
-            
-            .nav-links {
-                width: 100%;
-                justify-content: center;
-                font-size: 0.85em;
-                margin-left: 0;
-                gap: 15px;
-            }
-            
-            .brand-name {
-                white-space: nowrap;
-                font-size: 1.1em;
-            }
-            
-            .food-item, .wine-name {
-                font-size: 1em;
-            }
-            
-            .food-description, .wine-characteristics, .pairing-explanation {
-                font-size: 0.85em;
-                text-align: center;
-            }
-            
-            .cocktail-name {
-                font-size: 0.95em;
-            }
         }
-        
-        /* Mobile layout elements - hidden by default */
-        .mobile-top-row {
-            display: none;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 15px;
-            width: 100%;
-        }
-        
-        .brand-name-mobile {
-            font-size: 1.2em;
-            font-weight: 400;
-            color: var(--primary-color);
-            letter-spacing: 0.05em;
-            margin-left: 15px;
-        }
-        
-        /* Desktop/mobile toggling */
-        .desktop-only {
-            display: block;
-        }
-        
-        /* Extra small devices */
+
+        /* Extra small devices (mobile) */
         @media screen and (max-width: 480px) {
             /* Override body padding to match the screenshot */
             body {
@@ -384,7 +357,7 @@
             .logo-brand-wrapper {
                 margin-bottom: 15px;
                 justify-content: flex-start;
-                padding-left: 15px;
+                padding-left: 20px; /* Align with nav links below */
             }
             
             .logo-icon {
@@ -397,7 +370,7 @@
                 border-width: 1.5px;
             }
             
-            .brand-name {
+            .brand-name-mobile {
                 font-size: 1.3em;
                 font-weight: 500;
             }
@@ -408,6 +381,8 @@
                 border-bottom: 1px solid var(--border-color);
                 padding-bottom: 15px;
                 margin-bottom: 5px;
+                padding-left: 20px;
+                justify-content: flex-start;  /* Left-align the navigation */
             }
             
             .nav-links a {
@@ -434,13 +409,25 @@
                 text-align: center;
                 font-weight: 500;
             }
+            
+            .food-item, .wine-name {
+                font-size: 1em;
+            }
+            
+            .food-description, .wine-characteristics, .pairing-explanation {
+                font-size: 0.85em;
+                text-align: center;
+            }
+            
+            .cocktail-name {
+                font-size: 0.95em;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Top navigation -->
     <div class="top-nav">
-        <!-- Mobile and desktop header -->
         <div class="logo-brand-wrapper">
             <div class="logo-icon">
                 <div class="logo-square"></div>
@@ -453,14 +440,14 @@
                 <div class="logo-square"></div>
                 <div class="logo-square"></div>
             </div>
-            <div class="brand-name">Soho Warehouse</div>
+            <div class="brand-name-mobile">Soho Warehouse</div>
         </div>
-        <!-- Navigation links -->
         <div class="nav-links">
             <a href="#food-pairings">Food & Drink Pairings</a>
             <a href="#cocktails">Cocktail Builds</a>
             <a href="#na-beverages">NA Beverage Builds</a>
         </div>
+        <div class="brand-name">Soho Warehouse</div>
     </div>
 
     <h1 style="font-size: 1.8em;">Food & Drink Pairing Guide</h1>
