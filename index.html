@@ -337,16 +337,26 @@
             }
         }
         
+        /* Extra small devices */
         @media screen and (max-width: 480px) {
             .top-nav {
-                justify-content: center;
                 flex-direction: column;
-                gap: 10px;
+                gap: 15px;
             }
             
             .nav-left {
                 justify-content: center;
                 width: 100%;
+                flex-direction: row; /* Keep logo and Soho Warehouse on same line */
+            }
+            
+            /* Add a wrapper for the logo and brand name */
+            .logo-brand-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                margin-bottom: 10px;
             }
             
             .nav-links {
@@ -356,8 +366,8 @@
             }
             
             .logo-icon {
-                margin-right: 0;
-                margin-bottom: 5px;
+                margin-right: 15px; /* Restore right margin to create space between logo and text */
+                margin-bottom: 0;   /* Remove bottom margin */
             }
             
             th {
