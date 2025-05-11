@@ -44,6 +44,8 @@
             display: flex;
             align-items: center;
         }
+        
+        /* Removed .logo-brand-wrapper class as it's no longer used */
 
         .nav-links {
             display: flex;
@@ -339,39 +341,43 @@
         
         /* Extra small devices */
         @media screen and (max-width: 480px) {
+            /* Reorder elements for mobile */
             .top-nav {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .nav-left {
-                justify-content: center;
-                width: 100%;
-                flex-direction: row; /* Keep logo and Soho Warehouse on same line */
-            }
-            
-            /* Add a wrapper for the logo and brand name */
-            .logo-brand-wrapper {
-                display: flex;
+                display: grid;
+                grid-template-columns: auto 1fr;
+                grid-template-rows: auto auto;
+                gap: 10px;
                 align-items: center;
-                justify-content: center;
-                width: 100%;
-                margin-bottom: 10px;
-            }
-            
-            .nav-links {
-                justify-content: center;
-                width: 100%;
-                font-size: 0.85em;
             }
             
             .logo-icon {
-                margin-right: 15px; /* Restore right margin to create space between logo and text */
-                margin-bottom: 0;   /* Remove bottom margin */
+                grid-column: 1;
+                grid-row: 1;
+                margin-right: 15px;
+            }
+            
+            .brand-name {
+                grid-column: 2;
+                grid-row: 1;
+                text-align: left;
+            }
+            
+            .nav-left {
+                grid-column: 1 / span 2;
+                grid-row: 2;
+                width: 100%;
+            }
+            
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                font-size: 0.85em;
+                margin-left: 0;
             }
             
             th {
                 font-size: 0.9em;
+                text-align: center;
             }
         }
     </style>
