@@ -33,27 +33,29 @@
         /* Navigation */
         .top-nav {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
             padding: 10px 0;
             margin-bottom: 30px;
             border-bottom: 1px solid var(--border-color);
         }
         
-        .logo-brand-wrapper {
+        .nav-left {
             display: flex;
             align-items: center;
-            width: 100%;
-            justify-content: center;
-            margin-bottom: 20px;
         }
         
+        /* Removed .logo-brand-wrapper class as it's no longer used */
+
         .nav-links {
             display: flex;
             gap: 30px;
-            margin-left: 0;
-            justify-content: center;
-            width: 100%;
+            margin-left: 20px;
+        }
+        
+        /* Make sure the logo is visible in the desktop layout */
+        .desktop-only.logo-icon {
+            display: inline-block;
         }
         
         .nav-links a {
@@ -73,7 +75,6 @@
             font-weight: 400;
             color: var(--primary-color);
             letter-spacing: 0.05em;
-            margin-left: 15px;
         }
 
         .logo-icon {
@@ -81,7 +82,7 @@
             width: 30px;
             height: 30px;
             border: none;
-            margin-right: 0;
+            margin-right: 15px;
             position: relative;
             background: 
                 linear-gradient(var(--primary-color) 2px, transparent 2px) 0 0,
@@ -376,102 +377,51 @@
             }
             
             .top-nav {
+                flex-direction: column;
+                align-items: center;
                 border-bottom: none;
                 margin-bottom: 5px;
-                padding-top: 0;
             }
             
-            .logo-brand-wrapper {
-                margin-bottom: 15px;
-                justify-content: flex-start;
-                padding-left: 0;
-                /* Set width to match the navigation width */
-                width: auto;
-                max-width: calc(100% - 40px);
-                margin-left: auto;
-                margin-right: auto;
+            /* Show mobile layout, hide desktop layout */
+            .mobile-top-row {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 20px;
             }
             
-            .logo-icon {
-                margin-right: 10px;
-                width: 28px;
-                height: 28px;
+            /* Ensure the mobile logo and brand name look like the screenshot */
+            .mobile-top-row .logo-icon {
+                margin-right: 15px;
             }
             
-            .logo-icon::after {
-                border-width: 1.5px;
+            .desktop-only {
+                display: none;
             }
             
-            .brand-name {
-                font-size: 1.3em;
-                font-weight: 500;
+            .nav-left {
+                width: 100%;
+                justify-content: center;
+                border-bottom: 1px solid var(--border-color);
+                padding-bottom: 15px;
             }
             
             .nav-links {
-                font-size: 0.95em;
-                gap: 20px;
-                border-bottom: 1px solid var(--border-color);
-                padding-bottom: 15px;
-                margin-bottom: 5px;
-                width: auto;
-                max-width: calc(100% - 40px);
-            }
-            
-            .nav-links a {
-                color: #444;
+                width: 100%;
+                justify-content: center;
+                font-size: 0.85em;
+                margin-left: 0;
             }
             
             /* Additional styling to match screenshot */
             h1 {
-                margin-top: 35px;
-                margin-bottom: 35px;
-                font-size: 1.7em;
-                font-weight: 400;
-                padding-bottom: 10px;
-            }
-            
-            h2 {
-                font-size: 1.5em;
-                padding-bottom: 8px;
-                margin: 40px 0 20px;
+                margin-top: 30px;
+                margin-bottom: 30px;
             }
             
             th {
                 font-size: 0.9em;
                 text-align: center;
-                font-weight: 500;
-            }
-        }
-        
-        /* Medium size devices (tablets) */
-        @media screen and (min-width: 481px) and (max-width: 768px) {
-            /* Match browser layout for wider mobile view */
-            .top-nav {
-                flex-direction: column;
-            }
-            
-            .logo-brand-wrapper {
-                justify-content: center;
-            }
-            
-            .nav-links {
-                justify-content: center;
-            }
-        }
-        
-        /* Larger devices (desktops) */
-        @media screen and (min-width: 769px) {
-            /* Ensure browser layout */
-            .top-nav {
-                flex-direction: column;
-            }
-            
-            .logo-brand-wrapper {
-                justify-content: center;
-            }
-            
-            .nav-links {
-                justify-content: center;
             }
         }
     </style>
@@ -479,8 +429,8 @@
 <body>
     <!-- Top navigation -->
     <div class="top-nav">
-        <!-- Mobile and desktop header -->
-        <div class="logo-brand-wrapper">
+        <!-- This div only appears in mobile view via CSS -->
+        <div class="mobile-top-row">
             <div class="logo-icon">
                 <div class="logo-square"></div>
                 <div class="logo-square"></div>
@@ -492,14 +442,27 @@
                 <div class="logo-square"></div>
                 <div class="logo-square"></div>
             </div>
-            <div class="brand-name">Soho Warehouse</div>
+            <div class="brand-name-mobile">Soho Warehouse</div>
         </div>
-        <!-- Navigation links -->
-        <div class="nav-links">
-            <a href="#food-pairings">Food & Drink Pairings</a>
-            <a href="#cocktails">Cocktail Builds</a>
-            <a href="#na-beverages">NA Beverage Builds</a>
+        <div class="nav-left">
+            <div class="logo-icon desktop-only">
+                <div class="logo-square"></div>
+                <div class="logo-square"></div>
+                <div class="logo-square"></div>
+                <div class="logo-square"></div>
+                <div class="logo-square"></div>
+                <div class="logo-square"></div>
+                <div class="logo-square"></div>
+                <div class="logo-square"></div>
+                <div class="logo-square"></div>
+            </div>
+            <div class="nav-links">
+                <a href="#food-pairings">Food & Drink Pairings</a>
+                <a href="#cocktails">Cocktail Builds</a>
+                <a href="#na-beverages">NA Beverage Builds</a>
+            </div>
         </div>
+        <div class="brand-name desktop-only">Soho Warehouse</div>
     </div>
 
     <h1 style="font-size: 1.8em;">Food & Drink Pairing Guide</h1>
