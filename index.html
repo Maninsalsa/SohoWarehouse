@@ -90,7 +90,12 @@
             background-size: 10px 10px;
             background-position: -1px -1px;
         }
-
+        /* 
+         * This adds a border around the logo icon
+         * The ::after pseudo-element creates a border that extends 1px beyond
+         * the logo icon's boundaries on all sides (top, right, bottom, left)
+         * using absolute positioning and the primary color variable
+         */
         .logo-icon::after {
             content: '';
             position: absolute;
@@ -407,7 +412,7 @@
             
             .nav-links {
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
                 align-items: flex-start;
                 width: 100%;
                 font-size: 0.85em;
