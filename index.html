@@ -291,6 +291,67 @@
 
             td, th {
                 padding: 12px 10px;
+                text-align: center;
+            }
+            
+            .logo-icon {
+                min-width: 30px;
+                flex-shrink: 0;
+            }
+            
+            .top-nav {
+                flex-wrap: wrap;
+            }
+            
+            .nav-links {
+                gap: 15px;
+                font-size: 0.9em;
+            }
+            
+            .brand-name {
+                white-space: nowrap;
+                font-size: 1.1em;
+            }
+            
+            .food-item, .wine-name {
+                font-size: 1em;
+            }
+            
+            .food-description, .wine-characteristics, .pairing-explanation {
+                font-size: 0.85em;
+                text-align: center;
+            }
+            
+            .cocktail-name {
+                font-size: 0.95em;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .top-nav {
+                justify-content: center;
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .nav-left {
+                justify-content: center;
+                width: 100%;
+            }
+            
+            .nav-links {
+                justify-content: center;
+                width: 100%;
+                font-size: 0.85em;
+            }
+            
+            .logo-icon {
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
+            
+            th {
+                font-size: 0.9em;
             }
         }
     </style>
