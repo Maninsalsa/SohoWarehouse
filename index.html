@@ -436,6 +436,76 @@
                 text-align: left;
             }
         }
+
+        * {
+            box-sizing: border-box; /* Makes sizing more intuitive */
+        }
+
+        .element {
+            width: 100%; /* Full width of container */
+            padding: 10px; /* Inner spacing */
+            margin: 10px 0; /* Vertical spacing between elements */
+            border: 1px solid #ccc; /* Visual boundary */
+        }
+
+        /* For stacking elements vertically (good for mobile) */
+        .stack-vertical {
+            display: block;
+        }
+
+        /* For horizontal alignment of elements that need width/height */
+        .inline-with-control {
+            display: inline-block;
+        }
+
+        /* Show on mobile only */
+        @media (max-width: 480px) {
+            .mobile-only {
+                display: block;
+            }
+            .desktop-only {
+                display: none;
+            }
+        }
+
+        /* Mobile navigation container */
+        .mobile-nav {
+            display: flex;
+            flex-direction: column; /* Stack vertically on mobile */
+            width: 100%;
+        }
+
+        /* Header with logo and site name */
+        .header-row {
+            display: flex;
+            flex-direction: row; /* Horizontal arrangement */
+            align-items: center; /* Vertical center alignment */
+        }
+
+        /* Logo */
+        .logo {
+            margin-right: 10px; /* Space between logo and text */
+        }
+
+        /* Base styles for mobile */
+        .container {
+            padding: 15px;
+        }
+
+        /* For tablets and up */
+        @media (min-width: 768px) {
+            .container {
+                padding: 30px;
+            }
+        }
+
+        /* For desktops */
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+        }
     </style>
 </head>
 <body>
