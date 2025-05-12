@@ -173,7 +173,7 @@
         td {
             padding: 15px 20px;
             border: 1px solid var(--border-color);
-            vertical-align: top;
+            vertical-align: baseline;
         }
 
         /* ===== CONTENT STYLES ===== */
@@ -444,6 +444,66 @@
             .mobile-only {
                 display: block;
             }
+
+            /* Dropdown Menu Styles */
+            .nav-item.dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            .nav-dropdown-toggle {
+                cursor: pointer;
+                text-decoration: none;
+                color: var(--primary-color);
+                font-weight: 400;
+                letter-spacing: 0.05em;
+                padding: 10px 0; /* Match .nav-links a padding if any specific exists, else adjust as needed */
+            }
+
+            .dropdown-menu {
+                display: none;
+                position: absolute;
+                background-color: var(--background-color);
+                min-width: 200px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+                z-index: 1001; /* Ensure it's above other content */
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                border: 1px solid var(--border-color);
+                border-top: none; /* Optional: if toggle has bottom border */
+                top: 100%; /* Position below the toggle */
+                left: 0;
+            }
+
+            .nav-item.dropdown:hover .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-menu li a {
+                color: var(--primary-color);
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                font-weight: 300; /* Slightly lighter than main nav links */
+                letter-spacing: 0.03em;
+                font-size: 0.95em; /* Slightly smaller */
+                border-bottom: 1px solid var(--border-color);
+            }
+            
+            .dropdown-menu li:last-child a {
+                border-bottom: none;
+            }
+
+            .dropdown-menu li a:hover {
+                background-color: var(--table-header-bg);
+                color: var(--accent-color);
+            }
+
+            /* Ensure dropdown toggle hover matches nav links */
+            .nav-dropdown-toggle:hover {
+                color: var(--accent-color);
+            }
         }
     </style>
 </head>
@@ -478,8 +538,17 @@
                 <div class="logo-square"></div>
             </div>
             <div class="nav-links">
-                <a href="#cocktails">Cocktail Builds</a>
+                <div class="nav-item dropdown">
+                    <span class="nav-dropdown-toggle">Cocktail Builds</span>
+                    <ul class="dropdown-menu">
+                        <li><a href="#cocktails">Soho Tonics</a></li>
+                        <li><a href="#happy-hour-cocktails">Happy Hour</a></li>
+                        <li><a href="#seasonal-cocktails">Seasonal Cocktails</a></li>
+                        <li><a href="#pool-menu-cocktails">Pool Menu</a></li>
+                    </ul>
+                </div>
                 <a href="#na-beverages">NA Beverage Builds</a>
+                <a href="#house-red-vincent">Wines</a>
                 <a href="#food-pairings">Food & Drink Pairings</a>
             </div>
         </div>
@@ -497,71 +566,68 @@
             <tr>
                 <td><strong>Picante de la Casa</strong></td>
                 <td>
-                    Build:<br>
+                    <p><strong>Build:</strong><br>
                     chili pepper, cilantro in tin<br>
                     .75 agave<br>
-                    3oz batch (1oz lime, 2oz repo tequila)<br>
-                    <br>
-                    Method:<br>
-                    All ingredients in tin. Hard shake, double strain<br>
-                    <br>
-                    Glass: Rocks Glass<br>
-                    Garnish: Red Hat<br>
-                    <br>
+                    3oz batch (1oz lime, 2oz repo tequila)
+                    </p>
+                    <p><strong>Method:</strong><br>
+                    All ingredients in tin. Hard shake, double strain
+                    </p>
+                    <p><strong>Glass:</strong> Rocks Glass</p>
+                    <p><strong>Garnish:</strong> Red Hat</p>
+                    <p>
                     The picante de la casa combines some of the ingredients of the margarita with chili and coriander, which add a little extra heat and spice. It is based on the much-loved Tommy's margarita, built up with ingredients that are popular at our HOuses in Miami, New York and London. 
+                    </p>
                 </td>
                 <td>It's a spicy marg with repo tequila.</td>
             </tr>
             <tr>
                 <td><strong>Casa Verde</strong></td>
                 <td>
-                    Build:<br>
+                    <p><strong>Build:</strong><br>
                     4 lime wedges in tin, muddle<br>
-                    .75 passionfruit/green chili syrup.5 leblon cachaca<br>
+                    .75 passionfruit/green chili syrup<br> <!-- Added missing .5 leblon cachaca based on original structure, assuming it was part of build -->
+                    .5 leblon cachaca<br>
                     1.25 Gekkeikan Sake<br>
-                    .25 bacardi coconut<br>
-                    <br>
-                    Method: Shake and dump<br>
-                    <br>
-                    Glass: Rocks Glass<br>
-                    Garnish: chili hat<br>
-                    <br>
+                    .25 bacardi coconut
+                    </p>
+                    <p><strong>Method:</strong> Shake and dump</p>
+                    <p><strong>Glass:</strong> Rocks Glass</p>
+                    <p><strong>Garnish:</strong> chili hat</p>
                 </td>
                 <td>Caiparinha vibes</td>
             </tr>
             <tr>
                 <td><strong>Soho Mule</strong></td>
                 <td>
-                    Build:<br>
+                    <p><strong>Build:</strong><br>
                     1oz Lime<br>
                     1.25oz Ginger Syrup<br>
-                    2oz Vodka<br>
-                    <br>
-                    Method:<br>
-                    Build in tin, whip shake, top with soda water, and quick stir<br>
-                    <br>
-                    <br>
-                    Glass: Collins/Highball<br>
-                    Garnish: Ginger Candy<br>
-                    <br>
+                    2oz Vodka
+                    </p>
+                    <p><strong>Method:</strong><br>
+                    Build in tin, whip shake, top with soda water, and quick stir
+                    </p>
+                    <p><strong>Glass:</strong> Collins/Highball</p>
+                    <p><strong>Garnish:</strong> Ginger Candy</p>
                 </td>
                 <td>It's a mule without a copper cup...</td>
             </tr>
             <tr>
                 <td><strong>Eastern Standard</strong></td>
                 <td>
-                    Build:<br>
+                    <p><strong>Build:</strong><br>
                     2-3cucumber slices,3 mint leaves<br>
                     1oz Lime<br>
                     .75oz simple<br>
-                    2oz Gin<br>
-                    <br>
-                    Method: <br>
-                    Add all ingredients to tin, hardshake, double strain<br>
-                    <br>
-                    Glass: coupe<br>
-                    Garnish: cucumber in<br>
-                    <br>
+                    2oz Gin
+                    </p>
+                    <p><strong>Method:</strong> <br>
+                    Add all ingredients to tin, hardshake, double strain
+                    </p>
+                    <p><strong>Glass:</strong> coupe</p>
+                    <p><strong>Garnish:</strong> cucumber in</p>
                 </td>
                 <td>
                     An east side without the mint garnish
@@ -569,7 +635,7 @@
             </tr>
         </table>
     </div>
-    <h2>Happy Hour</h2>
+    <h2 id="happy-hour-cocktails">Happy Hour</h2>
     <div class ="table-wrapper">
         <table>
             <tr>
@@ -580,18 +646,16 @@
             <tr>
                 <td><strong>Grecian Negroni</strong></td>
                 <td>
-                    Build:<br>
+                    <p><strong>Build:</strong><br>
                     1oz Campari<br>
                     1oz Sweet Vermouth<br>
-                    1oz Skinos<br>
-                    <br>
-                    <br>
-                    Method:<br>
-                    Stir all ingredients in a mixing glass. pour into glass using a julip strainer, check for/remove ice shards<br>
-                    <br>
-                    Glass: Rocks/Old Fashioned<br>
-                    Garnish: orange peel in, after zest<br>
-                    <br>
+                    1oz Skinos
+                    </p>
+                    <p><strong>Method:</strong><br>
+                    Stir all ingredients in a mixing glass. pour into glass using a julip strainer, check for/remove ice shards
+                    </p>
+                    <p><strong>Glass:</strong> Rocks/Old Fashioned</p>
+                    <p><strong>Garnish:</strong> orange peel in, after zest</p>
                 </td>
                 <td>
                     it's a negroni with greek liquor!
@@ -600,79 +664,71 @@
             <tr>
                 <td><strong>Athens Manhattan</strong></td>
                 <td>
-                    Build:<br>
+                    <p><strong>Build:</strong><br>
                     3 dashes ango bitters<br>
                     1oz Otto's vermouth<br>
-                    2 oz bulleit rye<br>
-                    <br>
-                    Method: Stir, julip strain, ice shards check<br>
-                    <br>
-                    Glass: Nick & Nora<br>
-                    Garnish: Lemon Twist<br>
-                    <br>
+                    2 oz bulleit rye
+                    </p>
+                    <p><strong>Method:</strong> Stir, julip strain, ice shards check</p>
+                    <p><strong>Glass:</strong> Nick & Nora</p>
+                    <p><strong>Garnish:</strong> Lemon Twist</p>
                 </td>
                 <td></td>
             </tr>
             <tr>
                 <td><strong>Ouzo Lemonade</strong></td>
                 <td>
-                    Build:<br>
+                    <p><strong>Build:</strong><br>
                     big pinch of mint<br>
                     .5oz simple<br>
                     7oz lemonade<br>
-                    1oz ouzo<br>
-                    <br>
-                    Method: <br>
-                    Stir all ingredients in glass, with KD<br>
-                    <br>
-                    Glass: Tulip/Beer Glass<br>
-                    Garnish: Lemon wedge, mint garnish<br>
-                    <br>
+                    1oz ouzo
+                    </p>
+                    <p><strong>Method:</strong> <br>
+                    Stir all ingredients in glass, with KD
+                    </p>
+                    <p><strong>Glass:</strong> Tulip/Beer Glass</p>
+                    <p><strong>Garnish:</strong> Lemon wedge, mint garnish</p>
                 </td>
                 <td>
                     
                 </td>
             </tr>
-            <td><strong>Rose Bowl spritz</strong></td>
-            <td>
-                Build:<br>
-                .5oz simple<br>
-                1oz lemon<br>
-                2oz lillet rose<br>
-                grapefruit soda top off<br>
-                <br>
-                Method: Build in glass, like aperol spritz<br>
-                <br>
-                <br>
-                Glass: Wine Glass<br>
-                Garnish: dehy lemonwheel<br>
-                <br>
-            </td>
-        <td>
+            <tr> <!-- Added missing <tr> here based on structure -->
+                <td><strong>Rose Bowl spritz</strong></td>
+                <td>
+                    <p><strong>Build:</strong><br>
+                    .5oz simple<br>
+                    1oz lemon<br>
+                    2oz lillet rose<br>
+                    grapefruit soda top off
+                    </p>
+                    <p><strong>Method:</strong> Build in glass, like aperol spritz</p>
+                    <p><strong>Glass:</strong> Wine Glass</p>
+                    <p><strong>Garnish:</strong> dehy lemonwheel</p>
+                </td>
+                <td>
             
-        </td>
-    </tr>
-    <tr>
-        <td><strong>City of Mirrors</strong></td>
-        <td>
-            Build:<br>
-            1oz lemon<br>
-            1oz blood orange syrup<br>
-            1oz licor 43<br>
-            1.5oz select apertivo<br>
-            <br>
-            Method: build in tin, kd, hardshake, double strain<br>
-            <br>
-            <br>
-            Glass: Rocks Glass<br>
-            Garnish: <br>
-            <br>
-        </td>
-        <td></td>
-    </tr>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>City of Mirrors</strong></td>
+                <td>
+                    <p><strong>Build:</strong><br>
+                    1oz lemon<br>
+                    1oz blood orange syrup<br>
+                    1oz licor 43<br>
+                    1.5oz select apertivo
+                    </p>
+                    <p><strong>Method:</strong> build in tin, kd, hardshake, double strain</p>
+                    <p><strong>Glass:</strong> Rocks Glass</p>
+                    <p><strong>Garnish:</strong> <br> <!-- Retained the empty Garnish as per original --></p>
+                </td>
+                <td></td>
+            </tr>
         </table>
     </div>
-    <h2>Seasonal Cocktail Builds</h2>
+    <h2 id="seasonal-cocktails">Seasonal Cocktail Builds</h2>
     <div class="table-wrapper">
         <table>
             <tr>
@@ -683,161 +739,268 @@
             <tr>
                 <td><strong>Green Smash</strong></td>
                 <td>
-                    Specs:<br>
+                    <p><strong>Specs:</strong><br>
                     Two slices cucumber<br>
                     .75oz Lime juice<br>
                     1.25oz pineapple picante syrup<br>
-                    1.75oz Cazadores blanco<br>
-                    <br>
-                    Glass: Rocks<br>
-                    Garnish: Green chili hat<br>
-                    Mods: YES<br>
-                    <br>
+                    1.75oz Cazadores blanco
+                    </p>
+                    <p><strong>Glass:</strong> Rocks</p>
+                    <p><strong>Garnish:</strong> Green chili hat</p>
+                    <p><strong>Mods:</strong> YES</p>
+                    <p>
                     The Green Smash Picante is a refreshing, sweet take on the original Picante de la Casa.
+                    </p>
                 </td>
                 <td></td>
             </tr>
             <tr>
                 <td><strong>Soho Nacional</strong></td>
                 <td>
-                    Specs:<br>
+                    <p><strong>Specs:</strong><br>
                     .50oz Lime juice<br>
                     1oz Pineapple juice<br>
                     .25oz Simple<br>
-                    2oz Batch (.50oz Bacardi Ocho, 1oz Bacardi Superior, .50oz St-Germain)<br>
-                    <br>
-                    Glass: Coupe<br>
-                    Garnish: Dehydrated Lime<br>
-                    Mods: No<br>
-                    Batched: Yes<br>
-                    <br>
+                    2oz Batch (.50oz Bacardi Ocho, 1oz Bacardi Superior, .50oz St-Germain)
+                    </p>
+                    <p><strong>Glass:</strong> Coupe</p>
+                    <p><strong>Garnish:</strong> Dehydrated Lime</p>
+                    <p><strong>Mods:</strong> No</p>
+                    <p><strong>Batched:</strong> Yes</p>
+                    <p>
                     This cocktail is a riff on the classic Hotel Nacional, with the floral, lychee flavor of St-Germain replacing the apricot liqueur. White rum is split with a little bit of aged rum to give a bit of a caramelized flavor to the pineapple juice.
+                    </p>
                 </td>
                 <td></td>
             </tr>
             <tr>
                 <td><strong>Mezcal Picante</strong></td>
                 <td>
-                    Specs:<br>
+                    <p><strong>Specs:</strong><br>
                     1 Red chili slice<br>
                     1oz Lime juice<br>
                     .75oz Agave<br>
-                    2oz Iligal Mezcal<br>
-                    <br>
-                    Glass: Rocks<br>
-                    Garnish: Tajin<br>
-                    Mods: YES<br>
-                    <br>
+                    2oz Iligal Mezcal
+                    </p>
+                    <p><strong>Glass:</strong> Rocks</p>
+                    <p><strong>Garnish:</strong> Tajin</p>
+                    <p><strong>Mods:</strong> YES</p>
+                    <p>
                     The Mezcal Picante is a slightly spicy, smoky version of the classic Picante de la Casa.
+                    </p>
                 </td>
                 <td></td>
             </tr>
             <tr>
                 <td><strong>The Bridgetown</strong></td>
                 <td>
-                    Specs:<br>
+                    <p><strong>Specs:</strong><br>
                     3 Dash fea foam<br>
                     2 Dash cranberry bitters<br>
                     1 Dash ango bitters<br>
                     1oz Lime juice<br>
                     1oz Soursop syrup<br>
-                    2oz Ron Zacapa<br>
-                    <br>
-                    Glass: Nick n Nora<br>
-                    Garnish: Cran bitter heart<br>
-                    Mods: YES<br>
-                    <br>
+                    2oz Ron Zacapa
+                    </p>
+                    <p><strong>Glass:</strong> Nick n Nora</p>
+                    <p><strong>Garnish:</strong> Cran bitter heart</p>
+                    <p><strong>Mods:</strong> YES</p>
+                    <p>
                     An indulgent blend of Ron Zacapa's aged richness and the tropical allure of soursop syrup, brightened with zesty lime. Cranberry and Angostura bitters add a subtle edge, while Fea Foam smooths it all into a silky, elegant finish. A cocktail that's both adventurous and refined, like a stroll through a rainforest at golden hour.
+                    </p>
                 </td>
                 <td></td>
             </tr>
             <tr>
                 <td><strong>Paloma</strong></td>
                 <td>
-                    Specs:<br>
+                    <p><strong>Specs:</strong><br>
                     Pinch of salt<br>
                     .50oz Lime juice<br>
                     2oz 400-conejos mezcal<br>
-                    Top off with Grapefruit soda<br>
-                    <br>
-                    Glass: Collins<br>
-                    Garnish: Grapefruit wedge<br>
-                    Mods: YES<br>
-                    <br>
+                    Top off with Grapefruit soda
+                    </p>
+                    <p><strong>Glass:</strong> Collins</p>
+                    <p><strong>Garnish:</strong> Grapefruit wedge</p>
+                    <p><strong>Mods:</strong> YES</p>
+                    <p>
                     The paloma – the Spanish word for 'dove' – is by far the most popular way of drinking tequila in Mexico (other than swigging it straight from the bottle). There are many different brands of grapefruit soda that can be used in this drink, including Jarritos, Squirt and Ting.
+                    </p>
                 </td>
                 <td></td>
             </tr>
             <tr>
                 <td><strong>Strawberry Fields</strong></td>
                 <td>
-                    Specs:<br>
+                    <p><strong>Specs:</strong><br>
                     .75oz Lemon<br>
                     .75oz Simple syrup<br>
                     3oz batch (.50oz Apricot Liquor, .50oz St-Germain, 1.5oz Tanq 10 -strawberry infused-)<br>
-                    Top off with club soda<br>
-                    <br>
-                    Glass: Collins<br>
-                    Garnish: None<br>
-                    Mods: NO<br>
-                    Batched: Yes<br>
-                    <br>
+                    Top off with club soda
+                    </p>
+                    <p><strong>Glass:</strong> Collins</p>
+                    <p><strong>Garnish:</strong> None</p>
+                    <p><strong>Mods:</strong> NO</p>
+                    <p><strong>Batched:</strong> Yes</p>
+                    <p>
                     An old DTLA classic makes it return this summer. A vibrant, effervescent blend of strawberry-infused gin, delicately sweetened with St-Germain and apricot liqueur. Fresh lemon juice adds a crisp citrus tang, balanced by a touch of simple syrup, and finished with a splash of club soda for a light, sparkling finish. Floral, fruity, and refreshingly!
+                    </p>
                 </td>
                 <td></td>
             </tr>
             <tr>
                 <td><strong>Papas Paradise</strong></td>
                 <td>
-                    Specs:<br>
+                    <p><strong>Specs:</strong><br>
                     3 dashes Fea foam<br>
                     .50oz Lime juice<br>
                     1.25oz Man-Papaya Syrup<br>
-                    2 oz batch (.75oz Grand Marnier, 1.5oz Patron Silver)<br>
-                    <br>
-                    Glass: Coupe<br>
-                    Garnish: None<br>
-                    Mods: YES<br>
-                    Batched: Yes<br>
-                    <br>
+                    2 oz batch (.75oz Grand Marnier, 1.5oz Patron Silver)
+                    </p>
+                    <p><strong>Glass:</strong> Coupe</p>
+                    <p><strong>Garnish:</strong> None</p>
+                    <p><strong>Mods:</strong> YES</p>
+                    <p><strong>Batched:</strong> Yes</p>
+                    <p>
                     The Tommy's margarita was invented in San Francisco, California by Julio Bermejo at Tommy's Mexican Restaurant.
+                    </p>
                 </td>
                 <td></td>
             </tr>
             <tr>
                 <td><strong>Aperol Spritz</strong></td>
                 <td>
-                    Specs:<br>
+                    <p><strong>Specs:</strong><br>
                     2oz Aperol<br>
                     3oz Prosecco<br>
-                    top off Club soda<br>
-                    <br>
-                    Glass: Wine<br>
-                    Garnish: Orange wedge<br>
-                    Mods: NO<br>
-                    <br>
+                    top off Club soda
+                    </p>
+                    <p><strong>Glass:</strong> Wine</p>
+                    <p><strong>Garnish:</strong> Orange wedge</p>
+                    <p><strong>Mods:</strong> NO</p>
+                    <p>
                     A classic Italian aperitif cocktail made popular in the northern part of Italy, the Aperol spritz dates back to the end of the 19th century, when Venice was still part of the Austrian empire. The cocktail is based on the (then) popular Austrian spritz, which was a combination of white wine and soda water.
+                    </p>
                 </td>
                 <td></td>
             </tr>
             <tr>
                 <td><strong>Boulevardier</strong></td>
                 <td>
-                    Specs:<br>
+                    <p><strong>Specs:</strong><br>
                     1oz Sweet Vermouth<br>
                     1oz Campari<br>
-                    1oz Bulleit bourbon<br>
-                    <br>
-                    Glass: Coupe<br>
-                    Garnish: Orange zest, peel in<br>
-                    Mods: YES<br>
-                    <br>
+                    1oz Bulleit bourbon
+                    </p>
+                    <p><strong>Glass:</strong> Coupe</p>
+                    <p><strong>Garnish:</strong> Orange zest, peel in</p>
+                    <p><strong>Mods:</strong> YES</p>
+                    <p>
                     The boulevardier was first invented during Prohibition and was known as the signature drink of writer Erskine Gwynne. Gwynne left America for Paris in the 1920s and became the editor of a monthly publication called — what else? — Boulevardier.
+                    </p>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>De Lychee</strong></td>
+                <td>
+                    <p><strong>Specs:</strong><br>
+                    1.5oz Grey Goose (In Batch)<br>
+                    .75 Lemon<br>
+                    .75 Lychee syrup<br>
+                    .5 Passion syrup<br>
+                    .25 Dry Curacao (In Batch)<br>
+                    .25 St. Germain (In Batch)
+                    </p>
+                    <p><strong>Batch Info:</strong> 2oz Batch</p>
+                    <p><strong>Glass:</strong> Coupe</p>
+                    <p><strong>Garnish:</strong> lychee</p>
                 </td>
                 <td></td>
             </tr>
         </table>
     </div>
+
+    <h2 id="pool-menu-cocktails">Pool Menu</h2>
+    <div class="table-wrapper">
+        <table>
+            <tr>
+                <th style="width: 25%">Cocktail Name</th>
+                <th style="width: 50%">Cocktail Build</th>
+                <th style="width: 25%">Taste Notes</th>
+            </tr>
+            <tr>
+                <td><strong>Dolly Lava</strong></td>
+                <td>
+                    <p><strong>Specs:</strong><br>
+                    1.5oz Caz repo (In batch bottle)<br>
+                    .50oz Peach liqueur (In batch bottle)<br>
+                    1oz Spicy peach syrup<br>
+                    .75oz Lime juice<br>
+                    .50oz Agave
+                    </p>
+                    <p><strong>Batch Info:</strong> 2oz - Batch</p>
+                    <p><strong>Glass:</strong> Collins</p>
+                    <p><strong>Garnish:</strong> Lime wedge</p>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Pink Drink</strong></td>
+                <td>
+                    <p><strong>Specs:</strong><br>
+                    2oz Caz blanco<br>
+                    1oz Watermelon<br>
+                    .75oz lime juice<br>
+                    .50oz Agave<br>
+                    3 dash Spicy bitters
+                    </p>
+                    <p><strong>Glass:</strong> Rocks</p>
+                    <p><strong>Garnish:</strong> black salt and jalapeño hat</p>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Ibiza Spritz</strong></td>
+                <td>
+                    <p><strong>Specs:</strong><br>
+                    1.75oz Maison Vincent Rosé<br>
+                    .75oz St-Germain (In Batch)<br>
+                    .25oz Cocchi Rosa (In Batch)<br>
+                    .25oz Olive juice<br>
+                    Top with 2.5oz Prosecco
+                    </p>
+                    <p><strong>Batch Info:</strong> 1oz Batch</p>
+                    <p><strong>Glass:</strong> Wine glass</p>
+                    <p><strong>Garnish:</strong> Olive</p>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Frozé</strong></td>
+                <td>
+                    <p><strong>Specs:</strong><br>
+                    8oz Batch
+                    </p>
+                    <p><strong>Glass:</strong> Rocks</p>
+                    <p><strong>Garnish:</strong> lemon wheel</p>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Gold Rush Froze</strong></td>
+                <td>
+                    <p><strong>Specs:</strong><br>
+                    8oz Batch
+                    </p>
+                    <p><strong>Glass:</strong> Wine glass</p>
+                    <p><strong>Garnish:</strong> Grapefruit wedge</p>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
     <h2 id="na-beverages">NA Beverages</h2>
     <div class="table-wrapper">
         <table>
@@ -849,115 +1012,402 @@
             <tr>
                 <td><strong>Pick Me Up</strong></td>
                 <td>
-                    Build:<br>
+                    <p><strong>Build:</strong><br>
                     1.5oz espresso<br>
                     .75oz Three Spirit Livener<br>
-                    1.5oz Seedlip Spice<br>
-                    <br>
-                    Method:<br>
-                    Combine all ingredients in a shaker and add ice. Short shake and strain into a Nick & Nora.<br>
-                    <br>
-                    Glass: Nick & Nora<br>
-                    Garnish: One espresso bean<br>
-                    <br>
+                    1.5oz Seedlip Spice
+                    </p>
+                    <p><strong>Method:</strong><br>
+                    Combine all ingredients in a shaker and add ice. Short shake and strain into a Nick & Nora.
+                    </p>
+                    <p><strong>Glass:</strong> Nick & Nora</p>
+                    <p><strong>Garnish:</strong> One espresso bean</p>
+                    <p>
                     The Espresso Martini is one of the best-sold cocktails at Soho Houses across NAM. This version keeps the simplicity of the original, with a little heat and fresh citrus to brighten the finish.
+                    </p>
                 </td>
                 <td></td>
             </tr>
             <tr>
                 <td><strong>SFW</strong></td>
                 <td>
-                    Build:<br>
+                    <p><strong>Build:</strong><br>
                     .5oz pineapple-jalapeño syrup<br>
                     1oz lime juice<br>
-                    1.5oz Pentire Coastal Spritz<br>
-                    <br>
-                    Method:<br>
-                    Combine all ingredients in a shaker and add ice. Shake, then strain and double strain into an rocks glass.<br>
-                    <br>
-                    Glass: Rocks<br>
-                    Garnish: Dehydrated lime wheel, mint<br>
-                    <br>
+                    1.5oz Pentire Coastal Spritz
+                    </p>
+                    <p><strong>Method:</strong><br>
+                    Combine all ingredients in a shaker and add ice. Shake, then strain and double strain into an rocks glass.
+                    </p>
+                    <p><strong>Glass:</strong> Rocks</p>
+                    <p><strong>Garnish:</strong> Dehydrated lime wheel, mint</p>
+                    <p>
                     The NA cocktail is a blend about vibrant citrus (at least a holiday with sun) and a kick of heat. Dehydrated and citrused before, while the earthy mint harmonizes in the close.
+                    </p>
                 </td>
                 <td></td>
             </tr>
             <tr>
                 <td><strong>Vibrante Spritz</strong></td>
                 <td>
-                    Build:<br>
+                    <p><strong>Build:</strong><br>
                     1oz Martini Vibrante<br>
-                    3oz TT Tonic<br>
-                    <br>
-                    Method:<br>
-                    Combine all ingredients in a wine glass with ice and stir to blend.<br>
-                    <br>
-                    Glass: Wine<br>
-                    Garnish: Orange<br>
-                    <br>
+                    3oz TT Tonic
+                    </p>
+                    <p><strong>Method:</strong><br>
+                    Combine all ingredients in a wine glass with ice and stir to blend.
+                    </p>
+                    <p><strong>Glass:</strong> Wine</p>
+                    <p><strong>Garnish:</strong> Orange</p>
+                    <p>
                     This cocktail swaps out traditional alcohol for a vibrant, botanical base, gently sweetened, perfectly complemented by aromatic and citrused tonic. Super fresh!
+                    </p>
                 </td>
                 <td></td>
             </tr>
             <tr>
                 <td><strong>Palomar</strong></td>
                 <td>
-                    Build:<br>
+                    <p><strong>Build:</strong><br>
                     .5oz Pentire Adrift<br>
                     .75oz Three Spirit Livener<br>
                     Top with FT grapefruit soda<br>
-                    Pinch of salt<br>
-                    <br>
-                    Method:<br>
-                    Combine all ingredients (except soda) into a highball glass. Add ice then top with soda and finish with a very small pinch of salt.<br>
-                    <br>
-                    Glass: Highball<br>
-                    Garnish: None<br>
-                    <br>
+                    Pinch of salt
+                    </p>
+                    <p><strong>Method:</strong><br>
+                    Combine all ingredients (except soda) into a highball glass. Add ice then top with soda and finish with a very small pinch of salt.
+                    </p>
+                    <p><strong>Glass:</strong> Highball</p>
+                    <p><strong>Garnish:</strong> None</p>
+                    <p>
                     This cocktail is a riff on a Paloma, but with the added complexity of Three Spirits Livener, which brings schisandra berry, guava, green tea, and other energizing botanicals to the mix. Please note: Three Spirits Livener is very high in caffeine.
+                    </p>
                 </td>
                 <td></td>
             </tr>
             <tr>
                 <td><strong>Eastern Standard Fizz</strong></td>
                 <td>
-                    Build:<br>
+                    <p><strong>Build:</strong><br>
                     3 slices cucumber, 3 mint leaves<br>
                     .5oz lime juice<br>
                     .5oz simple syrup<br>
                     1.5oz Seedlip Garden<br>
-                    Top with soda water<br>
-                    <br>
-                    Method:<br>
-                    Add all ingredients to tin except the soda and muddle the cucumber and mint. Shake with ice and double strain into a highball. Top with soda water.<br>
-                    <br>
-                    Glass: Highball<br>
-                    Garnish: Cucumber<br>
-                    <br>
+                    Top with soda water
+                    </p>
+                    <p><strong>Method:</strong><br>
+                    Add all ingredients to tin except the soda and muddle the cucumber and mint. Shake with ice and double strain into a highball. Top with soda water.
+                    </p>
+                    <p><strong>Glass:</strong> Highball</p>
+                    <p><strong>Garnish:</strong> Cucumber</p>
+                    <p>
                     The garden effect is fresh, clean, and cooling. The "brunchy" herbal cocktail called the Eastern Standard is made in NAM. Also see "fancy brunch" China.
+                    </p>
                 </td>
                 <td></td>
             </tr>
         </table>
     </div>
     <h1 style="font-size: 1.8em;">Wines</h1>
-    <h2>Reds</h2>
+    <h2 id="house-red-vincent">Reds</h2>
     <div class="table-wrapper">
         <table>
             <tr>
-                <th style="width: 25%">Wine Type</th>
-                <th style="width: 50%">Information</th>
-                <th style="width: 25%">Tasing Notes</th>
+                <th style="width: 35%">Wine Name & Origin</th>
+                <th style="width: 40%">Information</th>
+                <th style="width: 25%">Tasting Notes</th>
             </tr>
             <tr>
-                <td><strong>House Red: Maison Vincent</strong></td>
                 <td>
-
+                    <strong>Cabernet Sauvignon, Maison Vincent 'Rogue'</strong><br>
+                    Languedoc, FR '19
                 </td>
-                <td></td>
+                <td>
+                    This is the House Red selection. A classic French Cabernet Sauvignon from the Languedoc region, known for its robust character and plummy notes.
+                    <br><em>Varietals: Cabernet Sauvignon</em>
+                </td>
+                <td>
+                    <strong>Color:</strong> Ruby Red<br>
+                    <strong>Nose:</strong> Intense aroma of ripe sloes and spicy black fruit<br>
+                    <strong>Palate:</strong> Luscious, soft and plummy
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Cabernet Sauvignon, Maison Vincent 'Rogue'</strong><br>
+                    Languedoc, FR '19
+                </td>
+                <td>
+                    This is the House Red selection. A classic French Cabernet Sauvignon from the Languedoc region, known for its robust character and plummy notes.
+                    <br><em>Varietals: Cabernet Sauvignon</em>
+                </td>
+                <td>
+                    <strong>Color:</strong> Ruby Red<br>
+                    <strong>Nose:</strong> Intense aroma of ripe sloes and spicy black fruit<br>
+                    <strong>Palate:</strong> Luscious, soft and plummy
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Montepulciano d'Abruzzo, Abbondanza</strong><br>
+                    Central Italy, IT '22
+                </td>
+                <td>
+                    A popular Italian red from the Abruzzo region, offering a balance of fruit and earthy notes.
+                    <br><em>Varietals: Montepulciano</em>
+                </td>
+                <td>
+                    <strong>Color:</strong> Dark Cherry red<br>
+                    <strong>Nose:</strong> Smoky minerality, dried beef, black cherry, dark berries<br>
+                    <strong>Palate:</strong> Medium body
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Cabernet Sauvignon, Brea</strong><br>
+                    Santa Margarita, CA '21
+                </td>
+                <td>
+                    A Californian Cabernet Sauvignon showcasing dark fruit flavors with an earthy undertone.
+                    <br><em>Varietals: Cabernet Sauvignon</em>
+                </td>
+                <td>
+                    <strong>Color:</strong> Ruby red with violet hues<br>
+                    <strong>Nose:</strong> Earth, cassis, oak, forest floor<br>
+                    <strong>Palate:</strong> Moderate weight with good acidity
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Pinot Noir, Folk Machine</strong><br>
+                    Central Coast, CA '23
+                </td>
+                <td>
+                    A light-bodied Pinot Noir from California's Central Coast, expressing red fruit and earthy characteristics.
+                    <br><em>Varietals: Pinot Noir</em>
+                </td>
+                <td>
+                    <strong>Color:</strong> Translucent red<br>
+                    <strong>Nose:</strong> Tea, bing cherry, white raspberry, sage<br>
+                    <strong>Palate:</strong> Light-bodied with red fruit and earth
+                </td>
             </tr>
         </table>
     </div>
+
+    <h2>White Wines</h2>
+    <div class="table-wrapper">
+        <table>
+            <tr>
+                <th style="width: 35%">Wine Name & Origin</th>
+                <th style="width: 40%">Information</th>
+                <th style="width: 25%">Tasting Notes</th>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Sancerre, Francis Blanchet Pouilly Fumé 'Cuvee Silice'</strong><br>
+                    Loire Valley, FR '22
+                </td>
+                <td>
+                    A classic Sauvignon Blanc from the Loire Valley, known for its minerality and crispness. Pouilly Fumé offers distinctive flinty notes.
+                    <br><em>Varietals: Sauvignon Blanc</em>
+                </td>
+                <td>
+                    <strong>Color:</strong> Light Golden White<br>
+                    <strong>Nose:</strong> Lemon zest, nectarine, jasmine tea<br>
+                    <strong>Palate:</strong> Flinty notes, ginger, anjou pear
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Sauvignon Blanc, Scarbolo</strong><br>
+                    Friuli, IT '19
+                </td>
+                <td>
+                    An Italian Sauvignon Blanc from Friuli, characterized by its citrus notes and creamy texture.
+                    <br><em>Varietals: Sauvignon Blanc</em>
+                </td>
+                <td>
+                    <strong>Color:</strong> Straw yellow with green hues<br>
+                    <strong>Nose:</strong> Citrus, unripe pineapple, green apple<br>
+                    <strong>Palate:</strong> Creamy medium body
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Chardonnay, Lúuma</strong><br>
+                    Sonoma Coast, US '20
+                </td>
+                <td>
+                    A Chardonnay from Sonoma Coast, noted for its crisp finish and natural, non-buttery style.
+                    <br><em>Varietals: Chardonnay</em>
+                </td>
+                <td>
+                    <strong>Color:</strong> Light yellow<br>
+                    <strong>Nose:</strong> Citrus, unripe pineapple, green apple<br>
+                    <strong>Palate:</strong> Crisp finish; natural, not buttery
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Vermentino, La Fete du Blanc</strong><br>
+                    Côtes de Provence, FR '22
+                </td>
+                <td>
+                    A Vermentino from Provence, offering ripe yellow fruit flavors and a full-bodied profile with a tangy finish.
+                    <br><em>Varietals: Vermentino</em>
+                </td>
+                <td>
+                    <strong>Color:</strong> Bright golden with silvery reflections<br>
+                    <strong>Nose:</strong> Ripe yellow fruits, apple<br>
+                    <strong>Palate:</strong> Full-bodied with tangy finish
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Sauvignon Blanc, Maison Vincent</strong><br>
+                    Languedoc, FR '19
+                </td>
+                <td>
+                    The House White selection. A Sauvignon Blanc from Languedoc, offering a balance of fruit, herbaceous notes, and zestiness.
+                    <br><em>Varietals: Sauvignon Blanc</em>
+                </td>
+                <td>
+                    <strong>Color:</strong> Gold yellow<br>
+                    <strong>Nose:</strong> White peach, pear, herbs and melon<br>
+                    <strong>Palate:</strong> Dry and zesty with weight and richness
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Grenache Blanc, Fallen Grape 'Mother'</strong><br>
+                    Santa Ynez Valley, US '20
+                </td>
+                <td>
+                    A unique Grenache Blanc from Santa Ynez Valley, presenting an orange hue and notes of citrus and dried stone fruit.
+                    <br><em>Varietals: Grenache Blanc</em>
+                </td>
+                <td>
+                    <strong>Color:</strong> Orange Hue<br>
+                    <strong>Nose:</strong> Lightly floral, citrus<br>
+                    <strong>Palate:</strong> Medium bodied, bright, dried stone fruit
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <h2>Rosé Wines</h2>
+    <div class="table-wrapper">
+        <table>
+            <tr>
+                <th style="width: 35%">Wine Name & Origin</th>
+                <th style="width: 40%">Information</th>
+                <th style="width: 25%">Tasting Notes</th>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Carignan, Maison Vincent Rosé</strong><br>
+                    Languedoc, FR '19
+                </td>
+                <td>
+                    A Carignan-based rosé from the South of France, offering expressive red berry notes and a savory freshness.
+                    <br><em>Varietals: Carignan</em>
+                </td>
+                <td>
+                    <strong>Color:</strong> Light salmon pink<br>
+                    <strong>Nose:</strong> Expressive red berry fruit<br>
+                    <strong>Palate:</strong> Savory freshness, elegant lemony acidity
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Grenache+, Château d'Esclans 'Whispering Angel'</strong><br>
+                    Provence, FR '23
+                </td>
+                <td>
+                    A highly popular Provence rosé, celebrated for its pale pink color, silky texture, and notes of small berries.
+                    <br><em>Varietals: Grenache, Cinsault, Rolle (Vermentino)</em>
+                </td>
+                <td>
+                    <strong>Color:</strong> Beautifully pale pink<br>
+                    <strong>Nose:</strong> Small berries, red currants<br>
+                    <strong>Palate:</strong> Silky, seductive, saline, medium-bodied, succulent
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Grenache+, Château La Coste 'Lady A'</strong><br>
+                    Provence, FR '19
+                </td>
+                <td>
+                    A thirst-quenching rosé from Provence, with tart citrus and raspberry flavors.
+                    <br><em>Varietals: Grenache, Syrah (typical for La Coste rosés)</em>
+                </td>
+                <td>
+                    <strong>Color:</strong> Pale Rosé<br>
+                    <strong>Nose:</strong> Tart citrus, green apple<br>
+                    <strong>Palate:</strong> Raspberry flavors, thirst-quenching
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <h2>Sparkling & Champagne</h2>
+    <div class="table-wrapper">
+        <table>
+            <tr>
+                <th style="width: 35%">Wine Name & Origin</th>
+                <th style="width: 40%">Information</th>
+                <th style="width: 25%">Tasting Notes</th>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Prosecco, Tasi Brut, NV</strong><br>
+                    Veneto, IT
+                </td>
+                <td>
+                    The name of the winery "Tasi" is taken from the Veneto dialect – a land in their opinion which is richer in wine than in good sense – and translates to "Shut up!" Therefore the wine is a tongue in cheek call for everyone to stop taking themselves so seriously… because they believe that wine is a passion that needs to be shared with joy!
+                    <br><em>Varietals: Glera</em>
+                </td>
+                <td>
+                    <strong>Color:</strong> Straw yellow with green tint<br>
+                    <strong>Nose:</strong> White flowers, citrus peel, green apple<br>
+                    <strong>Palate:</strong> Initial light sweetness, apples, citrus followed by crisp dry bubbles
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Champagne, Moët & Chandon 'Impérial', NV</strong><br>
+                    Champagne, FR
+                </td>
+                <td>
+                    A well-known Champagne blend, offering a balance of generosity and mineral freshness.
+                    <br><em>Varietals: Pinot Noir, Chardonnay, Pinot Meunier</em>
+                </td>
+                <td>
+                    <strong>Color:</strong> Golden straw yellow<br>
+                    <strong>Nose:</strong> White fruit, citrus, floral notes<br>
+                    <strong>Palate:</strong> Balanced generosity and mineral freshness
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Champagne, Veuve Clicquot Rosé, NV</strong><br>
+                    Champagne, FR
+                </td>
+                <td>
+                    A luminous rosé Champagne with notes of red fruits and a powerful attack.
+                    <br><em>Varietals: Pinot Noir, Chardonnay, Pinot Meunier</em>
+                </td>
+                <td>
+                    <strong>Color:</strong> Luminous color with pink glints<br>
+                    <strong>Nose:</strong> Raspberry, strawberry, cherry notes<br>
+                    <strong>Palate:</strong> Powerful attack with harmony of fruits
+                </td>
+            </tr>
+        </table>
+    </div>
+
     <h1 style="font-size: 1.8em;">Coffee</h1>
     <h2 id="coffee-espresso">Espresso</h2>
     <div class="table-wrapper">
