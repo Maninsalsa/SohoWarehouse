@@ -67,11 +67,14 @@
             padding: 10px 0;
             margin-bottom: 30px;
             border-bottom: 1px solid var(--border-color);
+            gap: 20px; /* Added gap between nav elements */
         }
         
         .nav-left {
             display: flex;
             align-items: center;
+            gap: 15px; /* Space between logo and brand name */
+            flex-shrink: 0; /* Prevent wrapping */
         }
 
         .nav-links {
@@ -504,6 +507,22 @@
             .nav-dropdown-toggle:hover {
                 color: var(--accent-color);
             }
+
+            .nav-item.dropdown .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                border: none;
+                display: none;
+            }
+            
+            .nav-item.dropdown:hover .dropdown-menu {
+                display: none; /* Disable hover behavior on mobile */
+            }
+            
+            .nav-dropdown-toggle::after {
+                content: " ▼";
+                font-size: 0.6em;
+            }
         }
     </style>
 </head>
@@ -695,37 +714,37 @@
                 </td>
             </tr>
             <tr> <!-- Added missing <tr> here based on structure -->
-                <td><strong>Rose Bowl spritz</strong></td>
-                <td>
+            <td><strong>Rose Bowl spritz</strong></td>
+            <td>
                     <p><strong>Build:</strong><br>
-                    .5oz simple<br>
-                    1oz lemon<br>
-                    2oz lillet rose<br>
+                .5oz simple<br>
+                1oz lemon<br>
+                2oz lillet rose<br>
                     grapefruit soda top off
                     </p>
                     <p><strong>Method:</strong> Build in glass, like aperol spritz</p>
                     <p><strong>Glass:</strong> Wine Glass</p>
                     <p><strong>Garnish:</strong> dehy lemonwheel</p>
-                </td>
-                <td>
+            </td>
+        <td>
             
-                </td>
-            </tr>
-            <tr>
-                <td><strong>City of Mirrors</strong></td>
-                <td>
+        </td>
+    </tr>
+    <tr>
+        <td><strong>City of Mirrors</strong></td>
+        <td>
                     <p><strong>Build:</strong><br>
-                    1oz lemon<br>
-                    1oz blood orange syrup<br>
-                    1oz licor 43<br>
+            1oz lemon<br>
+            1oz blood orange syrup<br>
+            1oz licor 43<br>
                     1.5oz select apertivo
                     </p>
                     <p><strong>Method:</strong> build in tin, kd, hardshake, double strain</p>
                     <p><strong>Glass:</strong> Rocks Glass</p>
                     <p><strong>Garnish:</strong> <br> <!-- Retained the empty Garnish as per original --></p>
-                </td>
-                <td></td>
-            </tr>
+        </td>
+        <td></td>
+    </tr>
         </table>
     </div>
     <h2 id="seasonal-cocktails">Seasonal Cocktail Builds</h2>
@@ -2060,6 +2079,31 @@
                 top: 0,
                 behavior: 'smooth'
             });
+        });
+    </script>
+    <script>
+        // Dropdown toggle for desktop (click/tap)
+        document.addEventListener('DOMContentLoaded', function() {
+            var dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+            var dropdownMenu = document.querySelector('.dropdown-menu');
+            var dropdownItem = document.querySelector('.nav-item.dropdown');
+
+            if (dropdownToggle && dropdownMenu) {
+                dropdownToggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    dropdownMenu.style.display = (dropdownMenu.style.display === 'block') ? 'none' : 'block';
+                });
+
+                // Prevent closing when clicking inside the dropdown
+                dropdownMenu.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function() {
+                    dropdownMenu.style.display = 'none';
+                });
+            }
         });
     </script>
 </body>
